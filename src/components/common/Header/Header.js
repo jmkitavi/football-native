@@ -11,7 +11,8 @@ export default class Header extends Component {
           onPress={() => { this.props.navigation.navigate('DrawerOpen')}}>
           <Icon
             name='menu'
-            size={32}/>
+            color='white'
+            size={20}/>
         </TouchableOpacity>
         <Text style={styles.title}>{this.props.navigation.state.key}</Text>
       </View>
