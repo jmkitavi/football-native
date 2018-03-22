@@ -2,7 +2,7 @@ import axios from 'axios'
 
 class CompetitionAPI {
   static getCompetitions() {
-    return axios.get(`http://api.football-data.org/v1/competitions`)
+    return axios.get(`https://api.football-data.org/v1/competitions`)
     .then(response => {
       return response.data
     }).catch(error => {
@@ -12,7 +12,7 @@ class CompetitionAPI {
   }
 
   static getCompetitionFixtures(competitionId) {
-    return axios.get(`http://api.football-data.org/v1/competitions/${competitionId}/fixtures`)
+    return axios.get(`https://api.football-data.org/v1/competitions/${competitionId}/fixtures`)
     .then(response => {
       return response.data
     }).catch(error => {
@@ -21,7 +21,7 @@ class CompetitionAPI {
     })
   }
   static getCompetitionTable(competitionId) {
-    return axios.get(`http://api.football-data.org/v1/competitions/${competitionId}/leagueTable`)
+    return axios.get(`https://api.football-data.org/v1/competitions/${competitionId}/leagueTable`)
     .then(response => {
       return response.data
     }).catch(error => {

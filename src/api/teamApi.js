@@ -2,7 +2,7 @@ import axios from 'axios'
 
 class TeamAPI {
   static getTeamDetails(teamId) {
-    return axios.get(`http://api.football-data.org/v1/teams/${teamId}`)
+    return axios.get(`https://api.football-data.org/v1/teams/${teamId}`)
     .then(response => {
       return response.data
     }).catch(error => {
@@ -11,7 +11,7 @@ class TeamAPI {
     })
   }
   static getTeamFixtures(teamId) {
-    return axios.get(`http://api.football-data.org/v1/teams/${teamId}/fixtures`)
+    return axios.get(`https://api.football-data.org/v1/teams/${teamId}/fixtures`)
     .then(response => {
       return response.data
     }).catch(error => {
@@ -20,7 +20,7 @@ class TeamAPI {
     })
   }
   static getTeamPlayers(teamId) {
-    return axios.get(`http://api.football-data.org/v1/teams/${teamId}/players`)
+    return axios.get(`https://api.football-data.org/v1/teams/${teamId}/players`)
     .then(response => {
       return response.data.players
     }).catch(error => {
