@@ -32,6 +32,7 @@ class SideMenu extends Component {
                 key={competition.id}
                 onPress={() => {
                   this.props.actions.loadCompetition(competition.id)
+                  this.props.navigation.navigate('Competition')
                   this.props.navigation.navigate('DrawerClose')
                 }}
               >
