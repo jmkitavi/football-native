@@ -3,25 +3,51 @@ import { StyleSheet, Platform } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#303030',
   },
   header: {
-    paddingTop: Platform.OS === 'ios' ? 50: 30,
-    paddingLeft: 15,
-    height: '20%',
-    backgroundColor: '#A2214B',
+    height: 70,
+    alignItems: 'center',
+    flexDirection: 'row',
+    paddingHorizontal: 15,
+    backgroundColor: '#000',
   },
   logo: {
-    width: 80,
-    height: 80,
+    width: 50,
+    height: 50,
   },
   title: {
-    fontWeight: 'bold',
-    fontSize: 20,
-    color: 'gold'
+    fontSize: 15,
+    fontFamily: 'Georgia',
+    color: 'gold',
+    paddingHorizontal: 10,
+  },
+  items: {
+    height: 36,
+    width: 200,
+    flexDirection: 'row',
+    backgroundColor: '#000',
+    marginLeft: 10,
+    alignItems: 'center',
+    borderRadius: 18,
+    marginTop: 10
+  },
+  itemImageContainer: {
+    backgroundColor: 'white',
+    borderRadius: 15,
+    overflow: 'hidden'
+  },
+  itemImage: {
+    height: 30,
+    width: 30,
+  },
+  itemText: {
+    color: 'white',
+    paddingLeft: 10
   },
   footerContainer: {
-    padding: 15,
-    backgroundColor: 'lightgrey'
+    padding: 6,
+    backgroundColor: '#000',
   },
 })
 

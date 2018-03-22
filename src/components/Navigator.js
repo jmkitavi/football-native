@@ -15,7 +15,7 @@ const routeConfigs = {
 
 const drawerNavigatorConfig = {
   initialRouteName: 'Competition',
-  drawerWidth: width/1.3 ,
+  drawerWidth: width/1.5 ,
   drawerPosition: 'left',
   drawerOpenRoute: 'DrawerOpen',
   drawerCloseRoute: 'DrawerClose',

@@ -1,21 +1,42 @@
 import React, {Component} from 'react';
+import {ScrollView, Text, View, Image, Button, TouchableHighlight } from 'react-native';
 import styles from './styles/style';
-import { NavigationActions, DrawerItems } from 'react-navigation';
-import {ScrollView, Text, View, Image, Button } from 'react-native';
+
+const competitions = [
+  { id: 445 ,name: 'Premier League', logo: require('../../../assets/images/logos/PL.png')},
+  { id: 455 ,name: 'La Liga', logo: require('../../../assets/images/logos/PD.png')},
+  { id: 452 ,name: 'BundesLiga', logo: require('../../../assets/images/logos/BL1.png')},
+  { id: 456 ,name: 'Serie A', logo: require('../../../assets/images/logos/SA.png')},
+  { id: 450 ,name: 'Ligue 1', logo: require('../../../assets/images/logos/FL1.png')},
+]
 
 class SideMenu extends Component {
   render () {
     return (
       <View style={styles.container}>
           <View style={styles.header}>
-
-            <Text style={styles.title}>FootBall App</Text>
+            <Image style={styles.logo} source={require('../../../assets/images/ball.png')}/>
+            <View style={{ flexDirection: 'column'}}>
+              <Text style={styles.title}>FootBall App</Text>
+              <Text style={{ fontSize: 8, color: 'gold', paddingHorizontal: 10}}>api.football-data.org</Text>
+            </View>
           </View>
-        <ScrollView>
-          <DrawerItems {...this.props}/>
+        <ScrollView >
+          {competitions.map(competition => {
+            return (
+              <TouchableHighlight key={competition.id}>
+                <View style={styles.items}>
+                  <View style={styles.itemImageContainer}>
+                    <Image style={styles.itemImage} source={competition.logo} />
+                  </View>
+                  <Text style={styles.itemText}>{competition.name}</Text>
+                </View>
+              </TouchableHighlight>
+            )
+          })}
         </ScrollView>
         <View style={styles.footerContainer}>
-          <Text>Kitavi Joseph 2018</Text>
+          <Text style={{ color: 'white', fontSize: 10}}>© 2018 sirjmkitavi. </Text>
         </View>
       </View>
     );
