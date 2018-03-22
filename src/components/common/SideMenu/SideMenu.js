@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 import {ScrollView, Text, View, Image, Button, TouchableHighlight } from 'react-native';
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
+import * as competitionActions from '../../../actions/competitionActions'
 import styles from './styles/style';
 
 const competitions = [
@@ -24,7 +28,13 @@ class SideMenu extends Component {
         <ScrollView >
           {competitions.map(competition => {
             return (
-              <TouchableHighlight key={competition.id}>
+              <TouchableHighlight 
+                key={competition.id}
+                onPress={() => {
+                  this.props.actions.loadCompetition(competition.id)
+                  this.props.navigation.navigate('DrawerClose')
+                }}
+              >
                 <View style={styles.items}>
                   <View style={styles.itemImageContainer}>
                     <Image style={styles.itemImage} source={competition.logo} />
@@ -43,4 +53,12 @@ class SideMenu extends Component {
   }
 }
 
-export default SideMenu;
+
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(competitionActions, dispatch)
+  }
+}
+
+export default connect(null, mapDispatchToProps)(SideMenu)
