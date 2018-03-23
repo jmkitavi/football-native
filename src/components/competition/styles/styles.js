@@ -1,48 +1,64 @@
-import { StyleSheet, Platform, Dimensions } from 'react-native';
+import {
+  StyleSheet,
+  Dimensions
+} from 'react-native'
 
 let { height, width } = Dimensions.get('window')
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  headerContainer: {
+    height: 50,
+    backgroundColor: '#000',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start'
   },
-  imageBackground: {
-    width: '100%',
-    height: '100%',
+  contentComponent: {
+    backgroundColor: '#333333',
   },
-  content: {
+  cardComponent: {
+    backgroundColor: 'grey',
+    alignSelf: 'center',
+  },
+  imageBody: {
+    height: 150,
     alignItems: 'center',
   },
-  text: {
-    fontWeight: 'bold',
-    fontSize: 28,
-    color: 'gold',
+  image: {
+    flex: 1,
+    height: 150,
+    resizeMode: 'contain'
   },
-  teamData: {
-    width: 10,
-    height: 10,
-    backgroundColor: 'black'
+  tableContainer: {
+    backgroundColor: '#333333',
+    width: width,
+    alignSelf: 'center',
   },
-  list: {
+  tableHeader: {
     flexDirection: 'row',
-    flexWrap: 'wrap'
+    borderBottomWidth: 1,
+    borderBottomColor: 'grey'
   },
-  item: {
-    backgroundColor: 'red',
-    margin: 3,
-    width: 100
+  tablePos: {
+    color: 'white',
+    width: 30
   },
-  listView: {
-    flexDirection: 'row',
-    flexWrap: 'wrap'
+  tableName: {
+    color: 'white',
+    width: 120
   },
-  card: {
-    backgroundColor: 'red',
-    width: (width / 2) - 15,
-    height: 100,
-    marginLeft: 10,
-    marginTop: 10
-  } 
+  tablePlays: {
+    color: 'white',
+  },
+  tableWins: {
+    color: 'white',
+  },
+  tableDraws: {
+    color: 'white',
+  },
+  tableLoss: {
+    color: 'white',
+  }
 })
 
 export default styles;
