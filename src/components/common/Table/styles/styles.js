@@ -9,47 +9,60 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   tableHeader: {
+    height: 30,
     backgroundColor: '#202020',
     borderBottomWidth: 1,
     borderBottomColor: 'black',
   },
+  tableRow: {
+    height: 50,
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    borderBottomWidth: 0.3,
+    borderBottomColor: 'grey',
+  },
   tableList: {
     paddingBottom: 35
   },
-  tableRow: {
-    height: 30,
-    alignItems: 'center',
-  teamImage: {
-    height: 26,
-    width: 26,
-  },
-  },
-  tableData: {
-    flex: 1,
+  teamDetails: {
+    flex: 7,
     flexDirection: 'row',
+    alignItems: 'center',
   },
-  tableSingle: {
-    fontSize: 12,
-    color: 'white',
-    width: 25,
-    textAlign: "center"
-  },
-  tableDouble: {
-    fontSize: 12,
-    color: 'white',
-    width: 40,
-    textAlign: "center"
-  },
-  tablePos: {
+  teamPos: {
     fontSize: 12,
     color: 'white',
     width: 18,
     textAlign: 'center',
   },
-  tableName: {
+  teamImage: {
+    height: 26,
+    width: 26,
+  },
+  teamName: {
+    color: 'white',
+    fontSize: 12,
+    flex: 1,
+    flexWrap: 'wrap',
+    marginLeft: 2,
+  },
+  tableData: {
+    flex: 8,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  tableSingle: {
     fontSize: 12,
     color: 'white',
-    width: 150
+    flex: 2,
+    textAlign: "center"
+  },
+  tableDouble: {
+    fontSize: 12,
+    color: 'white',
+    flex: 3,
+    textAlign: "center"
   },
 })
 

@@ -8,8 +8,10 @@ const Table = ({ standing }) => {
   return (
     <View style={styles.tableContainer}>
       <View style={[styles.tableRow, styles.tableHeader]}>
-        <Text style={styles.tablePos}></Text>
-        <Text style={styles.tableName}>Team</Text>
+        <View style={styles.teamDetails}>
+          <Text style={styles.teamPos}></Text>
+          <Text style={styles.teamName}>Team</Text>
+        </View>
         <View style={styles.tableData}>
           <Text style={styles.tableSingle}>Pl</Text>
           <Text style={styles.tableSingle}>W</Text>
@@ -26,7 +28,11 @@ const Table = ({ standing }) => {
         {standing.map((team) => {
           return (
               <View key={team.position} style={styles.tableRow}>
+                <View style={styles.teamDetails}>
+                  <Text style={styles.teamPos}>{team.position}</Text>
                   <SvgImage style={styles.teamImage} source={{uri: team.crestURI}} />
+                  <Text style={styles.teamName}>{team.teamName}</Text>
+                </View>
                 <View style={styles.tableData}>
                   <Text style={styles.tableSingle}>{team.playedGames}</Text>
                   <Text style={styles.tableSingle}>{team.wins}</Text>
