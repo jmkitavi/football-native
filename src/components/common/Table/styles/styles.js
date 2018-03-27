@@ -19,10 +19,10 @@ const styles = StyleSheet.create({
   tableRow: {
     height: 30,
     alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    borderBottomWidth: 0.5,
-    borderBottomColor: 'grey',
+  teamImage: {
+    height: 26,
+    width: 26,
+  },
   },
   tableData: {
     flex: 1,

@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, ScrollView } from 'react-native'
+import SvgImage from 'react-native-remote-svg'
 
 import styles from './styles/styles'
 
@@ -25,8 +26,7 @@ const Table = ({ standing }) => {
         {standing.map((team) => {
           return (
               <View key={team.position} style={styles.tableRow}>
-                <Text style={styles.tablePos}>{team.position}</Text>
-                <Text style={styles.tableName}>{team.teamName}</Text>
+                  <SvgImage style={styles.teamImage} source={{uri: team.crestURI}} />
                 <View style={styles.tableData}>
                   <Text style={styles.tableSingle}>{team.playedGames}</Text>
                   <Text style={styles.tableSingle}>{team.wins}</Text>
