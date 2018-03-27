@@ -29,36 +29,8 @@ const styles = StyleSheet.create({
     height: 150,
     resizeMode: 'contain'
   },
-  tableContainer: {
-    backgroundColor: '#333333',
-    width: width,
-    alignSelf: 'center',
+  tabContainer: {
   },
-  tableHeader: {
-    flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderBottomColor: 'grey'
-  },
-  tablePos: {
-    color: 'white',
-    width: 30
-  },
-  tableName: {
-    color: 'white',
-    width: 120
-  },
-  tablePlays: {
-    color: 'white',
-  },
-  tableWins: {
-    color: 'white',
-  },
-  tableDraws: {
-    color: 'white',
-  },
-  tableLoss: {
-    color: 'white',
-  }
 })
 
 export default styles;

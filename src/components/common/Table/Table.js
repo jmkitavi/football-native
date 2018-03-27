@@ -1,0 +1,51 @@
+import React from 'react'
+import {View, Text, ScrollView, Dimensions } from 'react-native'
+import { Content } from 'native-base'
+
+import styles from './styles/styles'
+
+let { height, width } = Dimensions.get('window')
+
+const Table = ({ standing }) => {
+  return (
+    <View style={styles.tableContainer}>
+      <View style={[styles.tableRow, styles.tableHeader]}>
+        <Text style={styles.tablePos}></Text>
+        <Text style={styles.tableName}>Team</Text>
+        <View style={{ flexDirection: 'row', flex: 1}}>
+          <Text style={styles.tableSingle}>Pl</Text>
+          <Text style={styles.tableSingle}>W</Text>
+          <Text style={styles.tableSingle}>D</Text>
+          <Text style={styles.tableSingle}>L</Text>
+          <Text style={styles.tableDouble}>+/-</Text>
+          <Text style={styles.tableSingle}>GD</Text>
+          <Text style={styles.tableSingle}>Pts</Text>
+        </View>
+      </View>
+
+      <ScrollView>
+        <View style={styles.tableList}>
+        {standing.map((team) => {
+          return (
+              <View key={team.position} style={styles.tableRow}>
+                <Text style={styles.tablePos}>{team.position}</Text>
+                <Text style={styles.tableName}>{team.teamName}</Text>
+                <View style={{ flexDirection: 'row', flex: 1}}>
+                  <Text style={styles.tableSingle}>{team.playedGames}</Text>
+                  <Text style={styles.tableSingle}>{team.wins}</Text>
+                  <Text style={styles.tableSingle}>{team.draws}</Text>
+                  <Text style={styles.tableSingle}>{team.losses}</Text>
+                  <Text style={styles.tableDouble}>{team.goals}/{team.goalsAgainst}</Text>
+                  <Text style={styles.tableSingle}>{team.goalDifference}</Text>
+                  <Text style={styles.tableSingle}>{team.points}</Text>
+                </View>
+              </View>
+          )
+        })}
+        </View>
+      </ScrollView>
+    </View>
+  )
+}
+
+export default Table
