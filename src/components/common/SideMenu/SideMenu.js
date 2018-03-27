@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import {ScrollView, Text, View, Image, TouchableHighlight } from 'react-native'
 
 import * as competitionActions from '../../../actions/competitionActions'
-import styles from './styles/style'
+import styles from './styles/styles'
 
 const competitions = [
   { id: 445 ,name: 'Premier League', logo: require('../../../assets/images/logos/PL.png')},
