@@ -1,6 +1,4 @@
-import { StyleSheet, Platform, Dimensions } from 'react-native';
-
-let { height, width } = Dimensions.get('window')
+import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
 container: {
@@ -20,4 +18,4 @@ title: {
 }
 })
 
-export default styles;
+export default styles

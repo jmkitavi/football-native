@@ -1,7 +1,4 @@
-import {
-  StyleSheet,
-  Dimensions
-} from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 
 let { height, width } = Dimensions.get('window')
 
@@ -26,6 +23,10 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     borderBottomWidth: 0.5,
     borderBottomColor: 'grey',
+  },
+  tableData: {
+    flex: 1,
+    flexDirection: 'row',
   },
   tableSingle: {
     fontSize: 12,
@@ -52,4 +53,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default styles;
+export default styles

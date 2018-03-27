@@ -1,4 +1,4 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
   container: {
@@ -16,9 +16,17 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
   },
+  titleContainer: {
+    flexDirection: 'column'
+  },
   title: {
     fontSize: 15,
     fontFamily: 'Georgia',
+    color: 'gold',
+    paddingHorizontal: 10,
+  },
+  titleNote: {
+    fontSize: 8,
     color: 'gold',
     paddingHorizontal: 10,
   },
@@ -51,4 +59,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default styles;
+export default styles

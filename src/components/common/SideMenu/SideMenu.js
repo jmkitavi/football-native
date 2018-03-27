@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import {ScrollView, Text, View, Image, Button, TouchableHighlight } from 'react-native';
+import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import {ScrollView, Text, View, Image, TouchableHighlight } from 'react-native'
 
 import * as competitionActions from '../../../actions/competitionActions'
-import styles from './styles/style';
+import styles from './styles/style'
 
 const competitions = [
   { id: 445 ,name: 'Premier League', logo: require('../../../assets/images/logos/PL.png')},
@@ -24,9 +24,9 @@ class SideMenu extends Component {
       <View style={styles.container}>
           <View style={styles.header}>
             <Image style={styles.logo} source={require('../../../assets/images/ball.png')}/>
-            <View style={{ flexDirection: 'column'}}>
+            <View style={styles.titleContainer}>
               <Text style={styles.title}>FootBall App</Text>
-              <Text style={{ fontSize: 8, color: 'gold', paddingHorizontal: 10}}>api.football-data.org</Text>
+              <Text style={styles.titleNote}>api.football-data.org</Text>
             </View>
           </View>
         <ScrollView >
@@ -60,7 +60,7 @@ class SideMenu extends Component {
           <Text style={{ color: 'white', fontSize: 10}}>© 2018 sirjmkitavi. </Text>
         </View>
       </View>
-    );
+    )
   }
 }
 

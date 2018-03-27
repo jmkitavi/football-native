@@ -1,10 +1,7 @@
 import React from 'react'
-import {View, Text, ScrollView, Dimensions } from 'react-native'
-import { Content } from 'native-base'
+import { View, Text, ScrollView } from 'react-native'
 
 import styles from './styles/styles'
-
-let { height, width } = Dimensions.get('window')
 
 const Table = ({ standing }) => {
   return (
@@ -12,7 +9,7 @@ const Table = ({ standing }) => {
       <View style={[styles.tableRow, styles.tableHeader]}>
         <Text style={styles.tablePos}></Text>
         <Text style={styles.tableName}>Team</Text>
-        <View style={{ flexDirection: 'row', flex: 1}}>
+        <View style={styles.tableData}>
           <Text style={styles.tableSingle}>Pl</Text>
           <Text style={styles.tableSingle}>W</Text>
           <Text style={styles.tableSingle}>D</Text>
@@ -30,7 +27,7 @@ const Table = ({ standing }) => {
               <View key={team.position} style={styles.tableRow}>
                 <Text style={styles.tablePos}>{team.position}</Text>
                 <Text style={styles.tableName}>{team.teamName}</Text>
-                <View style={{ flexDirection: 'row', flex: 1}}>
+                <View style={styles.tableData}>
                   <Text style={styles.tableSingle}>{team.playedGames}</Text>
                   <Text style={styles.tableSingle}>{team.wins}</Text>
                   <Text style={styles.tableSingle}>{team.draws}</Text>
