@@ -30,6 +30,16 @@ class SideMenu extends Component {
             </View>
           </View>
         <ScrollView >
+          <TouchableHighlight
+            onPress={() => this.props.navigation.navigate('Home')}
+            >
+              <View style={styles.items}>
+                <View style={styles.itemImageContainer}>
+                  <Image style={styles.itemImage} source={require('../../../assets/images/ball.png')} />
+                </View>
+                <Text style={styles.itemText}>Home</Text>
+              </View>
+            </TouchableHighlight>
           {competitions.map(competition => {
             return (
               <TouchableHighlight
