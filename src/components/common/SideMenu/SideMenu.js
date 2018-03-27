@@ -15,6 +15,10 @@ const competitions = [
 ]
 
 class SideMenu extends Component {
+  onSelect(id) {
+    this.props.navigation.navigate('Competition')
+    this.props.actions.loadCompetition(id)
+  }
   render () {
     return (
       <View style={styles.container}>
@@ -28,13 +32,9 @@ class SideMenu extends Component {
         <ScrollView >
           {competitions.map(competition => {
             return (
-              <TouchableHighlight 
+              <TouchableHighlight
                 key={competition.id}
-                onPress={() => {
-                  this.props.actions.loadCompetition(competition.id)
-                  this.props.navigation.navigate('Competition')
-                  this.props.navigation.navigate('DrawerClose')
-                }}
+                onPress={() => this.onSelect(competition.id)}
               >
                 <View style={styles.items}>
                   <View style={styles.itemImageContainer}>
