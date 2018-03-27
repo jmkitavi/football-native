@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { Image } from 'react-native'
+import { Image, TouchableOpacity } from 'react-native'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import {
   Text,
   Container,
@@ -14,6 +16,8 @@ import {
   Card,
   CardItem
 } from 'native-base'
+
+import * as competitionActions from '../../actions/competitionActions'
 import styles from './styles/style'
 
 const competitions = [
@@ -25,6 +29,10 @@ const competitions = [
 ]
 
 class Home extends Component {
+  onSelect(id) {
+    this.props.navigation.navigate('Competition')
+    this.props.actions.loadCompetition(id)
+  }
   render () {
     return (
       <Container>
@@ -44,28 +52,32 @@ class Home extends Component {
         <Content style={styles.contentComponent}>
           {competitions.map((competition) => {
             return (
-              <Card
-                style={styles.cardComponent}
+              <TouchableOpacity
                 key={competition.id}
+                onPress={() => this.onSelect(competition.id)}
                 >
-                <CardItem style={{ height: 40 }}>
-                  <Left>
-                    <Body>
-                      <Text>{competition.name}</Text>
-                      <Text note>{competition.country}</Text>
-                    </Body>
-                  </Left>
-                </CardItem>
-                <CardItem
-                  cardBody
-                  style={styles.imageBody}
+                <Card
+                  style={styles.cardComponent}
                   >
-                  <Image
-                    style={styles.image}
-                    source={competition.logo}
-                    />
-                </CardItem>
-              </Card>
+                  <CardItem style={{ height: 40 }}>
+                    <Left>
+                      <Body>
+                        <Text>{competition.name}</Text>
+                        <Text note>{competition.country}</Text>
+                      </Body>
+                    </Left>
+                  </CardItem>
+                  <CardItem
+                    cardBody
+                    style={styles.imageBody}
+                    >
+                    <Image
+                      style={styles.image}
+                      source={competition.logo}
+                      />
+                  </CardItem>
+                </Card>
+              </TouchableOpacity>
             )
           })}
         </Content>
@@ -74,4 +86,11 @@ class Home extends Component {
   }
 }
 
-export default Home
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(competitionActions, dispatch)
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Home)
