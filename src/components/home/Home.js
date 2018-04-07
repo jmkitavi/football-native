@@ -19,6 +19,7 @@ import {
 
 import * as competitionActions from '../../actions/competitionActions'
 import styles from './styles/style'
+import SplashScreen from 'react-native-splash-screen';
 
 const competitions = [
   { id: 445 ,name: 'Premier League', country: 'England', logo: require('../../assets/images/logos/PL.png')},
@@ -29,6 +30,12 @@ const competitions = [
 ]
 
 class Home extends Component {
+  componentDidMount() {
+    setTimeout(() => {
+      SplashScreen.hide();
+      // Component taking longer to display content causing a white screen, thus a delay by half a second
+    }, 500)
+  }
   onSelect(id) {
     this.props.navigation.navigate('Competition')
     this.props.actions.loadCompetition(id)
