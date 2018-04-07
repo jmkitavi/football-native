@@ -25,13 +25,14 @@ import {
 import axios from 'axios'
 
 import Table from '../common/Table/Table'
+import Fixtures from '../common/Fixtures/Fixtures'
 import styles from './styles/styles'
 
 class Competition extends Component {
   render () {
     return (
       <Container>
-        <Header style={styles.headerContainer}>
+        <Header style={styles.headerContainer} hasTabs>
           <Left>
             <Button
               transparent
@@ -52,15 +53,15 @@ class Competition extends Component {
           </Content>
         ):(
           <Tabs style={styles.tabContainer}>
+            <Tab heading={<TabHeading style={{ backgroundColor: 'black'}}><Text>Fixture</Text></TabHeading>} >
+              <Fixtures fixtures={this.props.competition.fixtures.fixtures} />
+            </Tab>
             <Tab
               heading={<TabHeading style={{ backgroundColor: 'black'}}><Text>Table</Text></TabHeading>}
               tabStyle={{ backgroundColor: 'black' }}
               tabBgColor='black' 
               >
               <Table standing={this.props.competition.table.standing} />
-            </Tab>
-            <Tab heading={<TabHeading style={{ backgroundColor: 'black'}}><Text>Fixture</Text></TabHeading>} >
-
             </Tab>
           </Tabs>
         )}
