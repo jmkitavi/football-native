@@ -32,7 +32,7 @@ class Competition extends Component {
   render () {
     return (
       <Container>
-        <Header style={styles.headerContainer} hasTabs>
+        <Header style={styles.headerContainer} hasTabs androidStatusBarColor='#202020'>
           <Left>
             <Button
               transparent

@@ -36,7 +36,7 @@ class Home extends Component {
   render () {
     return (
       <Container>
-        <Header style={styles.headerContainer}>
+        <Header style={styles.headerContainer} androidStatusBarColor='#202020'>
           <Left>
             <Button
               transparent
