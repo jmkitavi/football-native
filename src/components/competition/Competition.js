@@ -31,43 +31,45 @@ import styles from './styles/styles'
 class Competition extends Component {
   render () {
     return (
-      <Container>
+      <Container  style={{ backgroundColor: '#404040'}}>
         <Header style={styles.headerContainer} hasTabs androidStatusBarColor='#202020'>
           <Left>
             <Button
               transparent
               onPress={() => { this.props.navigation.navigate('DrawerOpen')}}
-              >
+            >
               <Icon name='menu' />
             </Button>
           </Left>
-            {!this.props.competition.table ? (
-              <Title>Competition</Title>
-            ):(
-              <Title>{this.props.competition.table.leagueCaption}</Title>
-            )}
+          {!this.props.competition.table ? (
+            <Title>Competition</Title>
+          ):(
+            <Title>{this.props.competition.table.leagueCaption}</Title>
+          )}
         </Header>
-        {!this.props.competition.table ? (
-          <Content style={{ backgroundColor: '#4d4d4d'}}>
-            <Spinner />
-          </Content>
-        ):(
-          <Tabs style={styles.tabContainer}>
-            <Tab heading={<TabHeading style={{ backgroundColor: 'black'}}><Text>Fixture</Text></TabHeading>} >
-              <Fixtures fixtures={this.props.competition.fixtures.fixtures} />
-            </Tab>
-            <Tab
-              heading={<TabHeading style={{ backgroundColor: 'black'}}><Text>Table</Text></TabHeading>}
-              tabStyle={{ backgroundColor: 'black' }}
-              tabBgColor='black' 
-              >
-              <Table standing={this.props.competition.table.standing} />
-            </Tab>
-          </Tabs>
-        )}
+        <Tabs style={styles.tabContainer}>
+          <Tab
+            heading={<TabHeading style={{ backgroundColor: 'black'}}><Text>Fixture</Text></TabHeading>}
+            style={{ backgroundColor: '#404040'}}>
+              {!this.props.competition.fixtures ? (
+                <Spinner />
+              ):(
+                <Fixtures fixtures={this.props.competition.fixtures.fixtures} />
+              )}
+          </Tab>
+          <Tab
+            heading={<TabHeading style={{ backgroundColor: 'black'}}><Text>Table</Text></TabHeading>}
+            style={{ backgroundColor: '#404040'}}>
+              {!this.props.competition.table ? (
+                <Spinner />
+              ):(
+                <Table standing={this.props.competition.table.standing} />
+              )}
+          </Tab>
+        </Tabs>
       </Container>
     )
-}
+  }
 }
 
 function mapStateToProps(state, ownProps) {
