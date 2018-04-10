@@ -1,4 +1,4 @@
-package com.football;
+package com.sirjmkitavi.football;
 
 import android.os.Bundle;
 import com.facebook.react.ReactActivity;

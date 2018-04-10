@@ -1,4 +1,4 @@
-package com.football;
+package com.sirjmkitavi.football;
 
 import android.content.Intent;
 import android.os.Bundle;
