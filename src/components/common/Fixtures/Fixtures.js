@@ -23,6 +23,30 @@ const getActiveDate = (arr, value) => {
   return arr[++i]; 
 }
 
+const matchData = (fixture) => {
+  if (fixture.status == 'FINISHED' || fixture.status == 'IN_PLAY') {
+    return (
+    <Text style={{ textAlign: 'center', color: 'white', fontSize: 15, fontWeight: 'bold' }}>
+      {fixture.result.goalsHomeTeam} - {fixture.result.goalsAwayTeam}
+    </Text>
+    )
+  }
+  else if (fixture.status == 'POSTPONED') {
+    return (
+    <Text style={{ textAlign: 'center', color: 'white' }}>
+      PP
+    </Text>
+    )
+  }
+  else {
+    return (
+    <Text style={{ textAlign: 'center', color: 'white' }}>
+      {moment(fixture.date).format('LT')}
+    </Text>
+    )
+  }
+}
+
 const Fixtures = ({ fixtures }) => {
   const groupedFixtures = groupBy(fixtures)
   return (
@@ -42,16 +66,37 @@ const Fixtures = ({ fixtures }) => {
             dates.push(Number(group[0]))
             return (
               <Card key={group[0]} ref={(ref) => { items[group[0]] = ref }}  style={{ backgroundColor: '#505050'}}>
-                <Text style={{ color: 'white'}}>{moment(group[0]).format('dddd, ll')}</Text>
-                {group[1].map((fixture, index) => {
-                  return (
-                    <View key={index}>
-                      <Text style={{ alignSelf: 'center', color: 'white' }}>
-                        {fixture.homeTeamName} {moment(fixture.date).format('LT')} {fixture.awayTeamName}
-                      </Text>
-                    </View>
-                  )
-                })}
+                <CardItem
+                  header
+                  style={{ backgroundColor: '#505050', borderBottomColor: '#303030', borderBottomWidth: 0.5, height: 35}}
+                >
+                  <Text style={{ color: 'white'}}>{moment(group[0]).format('dddd, ll')}</Text>
+                </CardItem>
+                <CardItem style={{ backgroundColor: '#505050', flexDirection: 'column'}} >
+                  {group[1].map((fixture, index) => {
+                    console.log(fixture)
+                    return (
+                      <View
+                        key={index}
+                        style={{ height: 40, flexDirection: 'row', flex: 1, justifyContent: 'space-between', alignItems: 'center'}}
+                      >
+                        <View style={{ flex: 9 }}>
+                          <Text style={{ textAlign: 'right',color: 'white' }}>
+                            {fixture.homeTeamName}
+                          </Text>
+                        </View>
+                        <View style={{ flex: 5}}>
+                          {matchData(fixture)}
+                        </View>
+                        <View style={{flex: 9}}>
+                          <Text style={{ textAlign: 'left', color: 'white' }}>
+                            {fixture.awayTeamName}
+                          </Text>
+                        </View>
+                      </View>
+                    )
+                  })}
+                </CardItem>
               </Card>
             )
           })}
