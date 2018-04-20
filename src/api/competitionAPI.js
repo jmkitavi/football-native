@@ -1,16 +1,6 @@
 import axios from 'axios'
 
 class CompetitionAPI {
-  static getCompetitions() {
-    return axios.get(`https://api.football-data.org/v1/competitions`)
-    .then(response => {
-      return response.data
-    }).catch(error => {
-      console.log(error)
-      return error
-    })
-  }
-
   static getCompetitionFixtures(competitionId) {
     return axios.get(`https://api.football-data.org/v1/competitions/${competitionId}/fixtures`)
     .then(response => {

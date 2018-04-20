@@ -6,12 +6,11 @@ import {
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
-import { competitionsReducer, competitionReducer } from '../reducers/competitionReducer'
+import { competitionReducer } from '../reducers/competitionReducer'
 import { teamReducer } from '../reducers/teamReducer'
 import { fixtureReducer } from '../reducers/fixtureReducer'
 
 const rootReducer =  combineReducers({
-  competitions: competitionsReducer,
   competition: competitionReducer,
   team: teamReducer,
   fixture: fixtureReducer
