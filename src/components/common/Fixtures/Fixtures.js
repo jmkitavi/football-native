@@ -26,8 +26,8 @@ const getActiveDate = (arr, value) => {
 const matchData = (fixture) => {
   if (fixture.status == 'FINISHED' || fixture.status == 'IN_PLAY') {
     return (
-    <Text style={{ textAlign: 'center', color: 'white', fontSize: 15, fontWeight: 'bold' }}>
-      {fixture.result.goalsHomeTeam} - {fixture.result.goalsAwayTeam}
+    <Text style={{ textAlign: 'center', color: 'white' }}>
+      {fixture.result.goalsHomeTeam}  -  {fixture.result.goalsAwayTeam}
     </Text>
     )
   }
@@ -47,6 +47,14 @@ const matchData = (fixture) => {
   }
 }
 
+const cleanTeamName = (teamName) => {
+  splitName = teamName.split(' ')
+  if (splitName[splitName.length - 1] == 'FC') {
+    return teamName.substr(0, teamName.length - 3)
+  }
+  return teamName
+}
+
 const Fixtures = ({ fixtures }) => {
   const groupedFixtures = groupBy(fixtures)
   return (
@@ -57,7 +65,10 @@ const Fixtures = ({ fixtures }) => {
         onContentSizeChange={() => {
           scrollToDate = getActiveDate(dates, Number(moment(Date.now()).format('YYYYMMDD')))
           items[scrollToDate]._root.measure((ox, oy, width, height, px, py) => {
-            this.scrollView.scrollTo({y: py - 103})
+            this.scrollView.scrollTo({
+              y: py - 103,
+              animated: true
+            })
           })
         }}
         >
@@ -81,8 +92,8 @@ const Fixtures = ({ fixtures }) => {
                         style={{ height: 40, flexDirection: 'row', flex: 1, justifyContent: 'space-between', alignItems: 'center'}}
                       >
                         <View style={{ flex: 9 }}>
-                          <Text style={{ textAlign: 'right',color: 'white' }}>
-                            {fixture.homeTeamName}
+                          <Text style={{ textAlign: 'right', color: 'white' }}>
+                            {cleanTeamName(fixture.homeTeamName)}
                           </Text>
                         </View>
                         <View style={{ flex: 5}}>
@@ -90,7 +101,7 @@ const Fixtures = ({ fixtures }) => {
                         </View>
                         <View style={{flex: 9}}>
                           <Text style={{ textAlign: 'left', color: 'white' }}>
-                            {fixture.awayTeamName}
+                            {cleanTeamName(fixture.awayTeamName)}
                           </Text>
                         </View>
                       </View>
