@@ -5,7 +5,11 @@ export function loadCompetitionSuccess(competition) {
 }
 
 export function loadCompetitionError(error) {
-  return null
+  return {}
+}
+
+export function clearCompetition() {
+  return { type: 'CLEAR_COMPETITION'}
 }
 
 export function loadCompetition(competitionId) {

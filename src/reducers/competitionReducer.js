@@ -5,6 +5,9 @@ export function competitionReducer(state = initialState.competition, action) {
     case 'LOAD_COMPETITION_SUCCESS':
       return action.competition
 
+    case 'CLEAR_COMPETITION':
+      return null
+
     default:
       return state
   }
